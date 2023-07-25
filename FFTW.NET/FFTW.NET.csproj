@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Authors>ArgusMagnus</Authors>
@@ -19,6 +19,18 @@
     <PackageReleaseNotes>- Changed to .NETStandard library (1.3)
 - Added FftwInterop.Version property which returns the version of the used FFTW libs</PackageReleaseNotes>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="libfftw3-3-x64.dll" />
+    <None Remove="libfftw3-3-x86.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libfftw3-3-x64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libfftw3-3-x86.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Update="FftwInterop.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
